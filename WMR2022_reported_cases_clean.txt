@@ -1,0 +1,73 @@
+country	year	suspected	examined	positive	test_positivity	as.factor(country)
+Eritrae	2010	792	24	894	0.03	Eritrae
+Eritrae	2011	479	190	308	0.62	Eritrae
+Eritrae	2012	8982	NA	557	NA	Eritrae
+Eritrae	2013	4183	541	90	6.01	Eritrae
+Eritrae	2014	6358	766	93	8.24	Eritrae
+Eritrae	2015	5782	NA	32	NA	Eritrae
+Eritrae	2016	9798	NA	251	NA	Eritrae
+Eritrae	2017	836	962	519	1.85	Eritrae
+Eritrae	2018	3687	65	25	2.6	Eritrae
+Eritrae	2019	2673	6666	117	56.97	Eritrae
+Eritrae	2020	6565	966	936	1.03	Eritrae
+Eritrae	2021	3054	68	14	4.86	Eritrae
+Ethiopia	2010	20110	9543	96829	0.1	Ethiopia
+Ethiopia	2011	87972	NA	80360	NA	Ethiopia
+Ethiopia	2012	62646	78479	92578	0.85	Ethiopia
+Ethiopia	2013	43894	73335	45454	1.61	Ethiopia
+Ethiopia	2014	57765	2717	18815	0.14	Ethiopia
+Ethiopia	2015	87580	79932	67059	1.19	Ethiopia
+Ethiopia	2016	11801	67309	18504	3.64	Ethiopia
+Ethiopia	2017	71958	46949	30739	1.53	Ethiopia
+Ethiopia	2018	13799	68995	2087	33.06	Ethiopia
+Ethiopia	2019	8222	96925	495	195.81	Ethiopia
+Ethiopia	2020	9602	644	43755	0.01	Ethiopia
+Ethiopia	2021	16458	25851	97151	0.27	Ethiopia
+Kenya	2010	57454	84402	8531	9.89	Kenya
+Kenya	2011	127058	51	805	0.06	Kenya
+Kenya	2012	883521	36617	26719	1.37	Kenya
+Kenya	2013	742401	6885	608	11.32	Kenya
+Kenya	2014	204056	44865	NA	NA	Kenya
+Kenya	2015	37285	72329	5508	13.13	Kenya
+Kenya	2016	290286	67609	69045	0.98	Kenya
+Kenya	2017	362146	52353	15665	3.34	Kenya
+Kenya	2018	435472	82912	7947	10.43	Kenya
+Kenya	2019	11133	NA	56702	NA	Kenya
+Kenya	2020	60361	91588	46648	1.96	Kenya
+Kenya	2021	748015	3911	96769	0.04	Kenya
+Uganda	2010	320926	5284	28595	0.18	Uganda
+Uganda	2011	362291	5928	4726	1.25	Uganda
+Uganda	2012	845771	66571	13149	5.06	Uganda
+Uganda	2013	145615	18588	2362	7.87	Uganda
+Uganda	2014	201136	8185	8289	0.99	Uganda
+Uganda	2015	952246	84722	48576	1.74	Uganda
+Uganda	2016	257784	92090	42091	2.19	Uganda
+Uganda	2017	319643	15931	94441	0.17	Uganda
+Uganda	2018	111650	NA	8909	NA	Uganda
+Uganda	2019	756835	91859	NA	NA	Uganda
+Uganda	2020	434176	84114	47933	1.75	Uganda
+Uganda	2021	48071	9037	13116	0.69	Uganda
+United Republic of Tanzania	2010	452268	1608	77388	0.02	United Republic of Tanzania
+United Republic of Tanzania	2011	442493	195	13654	0.01	United Republic of Tanzania
+United Republic of Tanzania	2012	659506	7411	72736	0.1	United Republic of Tanzania
+United Republic of Tanzania	2013	177829	88029	81759	1.08	United Republic of Tanzania
+United Republic of Tanzania	2014	197621	7130	2289	3.11	United Republic of Tanzania
+United Republic of Tanzania	2015	29480	3223	2702	1.19	United Republic of Tanzania
+United Republic of Tanzania	2016	881657	86389	62679	1.38	United Republic of Tanzania
+United Republic of Tanzania	2017	76522	88538	6742	13.13	United Republic of Tanzania
+United Republic of Tanzania	2018	784288	5052	1903	2.65	United Republic of Tanzania
+United Republic of Tanzania	2019	81250	40897	6673	6.13	United Republic of Tanzania
+United Republic of Tanzania	2020	471902	96487	6052	15.94	United Republic of Tanzania
+United Republic of Tanzania	2021	94633	34975	9485	3.69	United Republic of Tanzania
+South Sudan	2010	NA	NA	83	NA	South Sudan
+South Sudan	2011	NA	NA	2024	NA	South Sudan
+South Sudan	2012	NA	NA	5371	NA	South Sudan
+South Sudan	2013	NA	NA	2520	NA	South Sudan
+South Sudan	2014	92473	321	344	0.93	South Sudan
+South Sudan	2015	14332	721	272	2.65	South Sudan
+South Sudan	2016	6043	54	57	0.95	South Sudan
+South Sudan	2017	91360	7	5642	0	South Sudan
+South Sudan	2018	5779	4	4	1	South Sudan
+South Sudan	2019	58306	89	37	2.41	South Sudan
+South Sudan	2020	NA	NA	535	NA	South Sudan
+South Sudan	2021	8950	39	3612	0.01	South Sudan
