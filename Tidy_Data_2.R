@@ -89,6 +89,7 @@ beetles <- beetles %>%
 
 beetles <- rename_with(beetles, tolower)
 
+
 #SEPARATE
 #(Extra) How would you calculate the total number of Copris genus beetles caught without separating the columns? How many are there?
 
@@ -135,8 +136,143 @@ casesdf <- read.table("WMR2022_reported_cases_3.txt",
 
 ?rename
 
+casesdf <- casesdf %>% rename('suspected' = 'Suspected cases',
+                  'examined' = 'Microscopy examined',
+                  'positive' = 'Microscopy positive')
+#rename() was used in order to replace the names of multiple column names. before '=' is the new name and after the '=' is the old name
 
+str(casesdf,vec.len=2) 
+#this shows the first two columns (vec.len=4 will show 4 columns)
+#year is currently a character, this is wrong as it only contains numerical values. this happened because of the way it was converted from the columns it has an X in front of it(R does not like numerical column names, since this would easily confused with column positions, so it adds an 'X' before them)
 
+#Use mutate and gsub ti remove the 'X' from every value in the years column 
 
+casesdf <- casesdf %>% mutate(year = gsub('X','',year))
+
+?mutate
+
+#6.2 Changing format with mute
+
+str(casesdf)
+#it still comes up as a character so in order to change it the function 'as.numeric' will take the character vector and convert each one to a numerical value
+
+casesdf <- casesdf %>% 
+  mutate(year = as.numeric(gsub('X','',year)))
+
+class(casesdf$year) #unable to complete, still comes up as 
+
+#6.3 Remove numbers from character columns
+#Use mutate and gsub to remove all the numbers from the country columns
+
+casesdf <- casesdf %>% mutate(country = gsub('[2:4]','',country))
+#this deleted the unwanted numbers in the country column. the numbers were 2 and 4: 'united republic of `. tanzania2' 'south sudan4'
+
+#6.4 Remove characters from number columns
+#Use mutate and gsub to remove all the non-number characters from the suspected column
+
+casesdf <- casesdf %>% mutate(suspected = as.numeric(gsub('[^0-9.-]','',suspected)))
+
+class(casesdf$suspected)
+
+#Make a function which cleans numbers and casts them to a numerical value. Call it 'clean_number'
+
+clean_number <- function(x) {
+  as.numeric(gsub('^[0-9]','',x))
+}
+
+casesdf %>% clean_number(positive) #unsure
+
+#6.5 Mutate across
+#using the across() function do the same operation for examined and positive at the same time
+
+?across
+#across(.cols, .fns, ..., .names)
+#.cols is the columns to change
+#.fns the function that needs to be used in each of the columns
+
+casesdf <- casesdf %>% 
+  mutate(across(c(suspected,examined,positive),clean_number))
+#the selected columns were suspected, examined and positive. the function that was to be used is clean_number which cleans the column numbers and converts them to numeric 
+
+class(casesdf$examined)
+
+#What is an alternative tidy_select way to select everything except 'country'?
+
+?tidy
+
+casesdf %>% mutate(across(!country,clean_number))
+#this chooses all the columns apart from the country column
+
+#6.6 Calculations with mutate
+#Using mutate you can make new columns that are derived from the ones that are already there
+
+casesdf %>% mutate(new_col = do_some_stuff(old_col))
+
+#'test_positivity' can be used as a metric of how well your disease surveillance is going. You have two columns of the number of tests performed 'examined' and the number of tests that were positive 'positive'. You can divide one by the other to give you the proportion of positive tests for each year and country
+
+#Make a new column for 'test_positivity' rounded to two significant digits and add it to your table 
+
+casesdf <- casesdf %>%
+  mutate(test_positivity = round(examined / positive, 2))
+#round() is a function that is used to round off values to a specific number of decimal value
+
+?mutate
+
+#7 FACTORS
+
+#It is inefficient to have 'country' as a character array and is better to convert it to a factor
+#factors are degined for categorical data, effectively as set of integers with names attached
+
+#Use as.fcator and mutate to convert country to a factor
+
+casesdf <- casesdf %>%
+  mutate(country = as.factor(country))
+
+class(casesdf$country)
+
+#We can look at all the categories for any factor like so:
+levels(casesdf$country)
+#one of the counties is called Eritrae instead of Eritrea so this must be changed
+
+#Use mutate and gsub to replace 'Eritrae' with 'Eritrea'; then convert it to a factor
+
+casesdf %>%
+  mutate(country = gsub('Eritrae','Eritrea',country)) %>%
+  mutate(country = as.factor(country))
+
+#8 WRITE TO FILE
+
+#Once you have a nice table, you want to output the file. 'write_table' works in a similar way to 'read.table'
+
+#using write.table to output your clean table with the following format:
+#plain text
+#tab delimited
+#with a header line 
+#no quotation marks
+#no row names
+
+write.table(casesdf, 'WMR2022_reported_cases_clean.txt', 
+            sep = '\t',
+            col.names = T,
+            row.names = F,
+            quote = F)
+
+#9 The big challenge
+
+# Sample data creation
+df <- data.frame(
+  character_column = rep(c("A", "B", "C"), each = 4),
+  numeric_values = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+)
+df
+
+# Applying the transformation
+df <- df %>%
+  group_by(character_column) %>%
+  mutate(average_value = mean(numeric_values, na.rm = TRUE)) %>%
+  ungroup()
+
+# View the modified dataframe
+print(df)
 
 
